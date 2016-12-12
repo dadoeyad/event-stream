@@ -1,0 +1,8 @@
+*.pyc
+*.mo
+.DS_Store
+venv
+.idea
+.project
+.pydevproject
+db.sqlite3

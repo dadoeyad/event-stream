@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div>
+    <!-- Nav tabs -->
+    <ul id="tabs" class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#tweets" aria-controls="tweets" role="tab" data-toggle="tab">Tweets</a>
+      </li>
+      <li role="presentation"><a href="#slack" aria-controls="slack" role="tab" data-toggle="tab">Slack</a></li>
+    </ul>
+
+    <div id="buttons">
+      <button id="connect" type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+      </button>
+      <button id="disconnect" type="button" class="btn btn-default" aria-label="Left Align">
+        <span class="glyphicon glyphicon-stop" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="tweets">
+        <ul class="list-group">
+        </ul>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="slack">
+        <ul class="list-group">
+      </div>
+    </div>
+
+  </div>
+{% endblock content %}
+
+{% block javascript %}
+  <script>
+    $('#tabs a').click(function (e) {
+      e.preventDefault();
+      $(this).tab('show');
+    })
+  </script>
+  <script src="{% static "js/streams.js" %}"></script>
+{% endblock javascript %}
