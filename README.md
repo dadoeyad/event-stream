@@ -21,7 +21,5 @@ export SECRET_KEY='Django-secert-key'
 
 # TODO
 * Deploy to Heroku
-* Add avatar and username to tweets
-* Add username to Slack message
 * Review if it's better to use Slack Outgoing WebHooks over RTM API
 * Get and implement a design

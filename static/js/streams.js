@@ -34,9 +34,13 @@ $(function() {
   }
 
   slack_socket.onmessage = function(message) {
-    $('<li class="list-group-item">'
-        + message.data
-    + '</li>').prependTo('#slack ul').hide().slideDown();
+    var data = JSON.parse(message.data);
+    var clone = $('#slack-template').clone(true).attr('id', '').removeClass("hide");
+    clone.find('img').attr('src', data.img);
+    clone.find('img').attr('alt', data.username);
+    clone.find('.text').html(data.text);
+    clone.find('.username').html(data.username);
+    clone.prependTo('#slack ul').hide().slideDown();
   }
 
 });

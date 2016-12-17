@@ -46,6 +46,23 @@ class SlackSocket(LibSlackSocket):
         self._thread.start()
         self.running = True
 
+    def _find_user_name(self, user_id):
+        """
+        rewrite to return username and image
+        """
+        self.load_user_lock.acquire()
+        try:
+            users = self.loaded_users
+        finally:
+            self.load_user_lock.release()
+
+        for user in users:
+            if user['id'] == user_id:
+                return {
+                    'username': user['name'],
+                    'img': user['profile']['image_32']
+                }
+
     def _event_handler(self, ws, event_json):
         log.debug('event recieved: %s' % event_json)
 
@@ -58,12 +75,15 @@ class SlackSocket(LibSlackSocket):
 
         event = SlackEvent(json_object)
 
-        # TODO: make use of ctype returned from _lookup_channel
         if self._translate:
             event = self._translate_event(event)
 
         message = {
-            'text': event.event['text']
+            'text': json.dumps({
+                'text': event.event['text'],
+                'img': event.event['user']['img'],
+                'username': event.event['user']['username'],
+            })
         }
         self._group.send(message)
 
