@@ -1,4 +1,5 @@
 import tweepy
+import json
 
 from django.conf import settings
 
@@ -17,7 +18,11 @@ class TweetsListener(tweepy.StreamListener):
 
     def on_status(self, status):
         tweet = {
-            'text': status.text
+            'text': json.dumps({
+                'text': status.text,
+                'img': status.user.profile_image_url_https,
+                'username': '@{}'.format(status.user.screen_name)
+            })
         }
         self._group.send(tweet)
 
