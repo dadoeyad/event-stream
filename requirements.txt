@@ -6,7 +6,7 @@ constantly==15.1.0
 daphne==0.15.0
 Django==1.10.4
 incremental==16.10.1
-msgpack-python==0.4.8
+msgpack-python==0.5.6
 oauthlib==2.0.1
 redis==2.10.5
 requests==2.12.3
