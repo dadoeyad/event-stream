@@ -16,5 +16,5 @@ slacksocket==0.7
 tweepy==3.5.0
 Twisted==16.6.0
 txaio==2.5.2
-websocket-client==0.40.0
+websocket-client==0.57.0
 zope.interface==4.3.2
