@@ -9,7 +9,7 @@ incremental==16.10.1
 msgpack-python==0.4.8
 oauthlib==2.0.1
 redis==2.10.5
-requests==2.12.3
+requests==2.20.0
 requests-oauthlib==0.7.0
 six==1.10.0
 slacksocket==0.7
