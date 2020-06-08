@@ -4,7 +4,7 @@ autobahn==0.17.0
 channels==0.17.3
 constantly==15.1.0
 daphne==0.15.0
-Django==1.10.4
+Django==1.11.29
 incremental==16.10.1
 msgpack-python==0.4.8
 oauthlib==2.0.1
