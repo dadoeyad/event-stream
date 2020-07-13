@@ -13,7 +13,7 @@ requests==2.12.3
 requests-oauthlib==0.7.0
 six==1.10.0
 slacksocket==0.7
-tweepy==3.5.0
+tweepy==3.9.0
 Twisted==16.6.0
 txaio==2.5.2
 websocket-client==0.40.0
